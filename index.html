@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jyothi — Portfolio</title>
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="logo">Portfolio</div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="social-top">
+        <a href="https://github.com/yourgithub" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/yourlinkedin" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HOME / HERO -->
+  <section id="home" class="hero">
+    <div class="hero-left">
+      <h3>Hello, It's Me</h3>
+      <h1>Jyothi <span class="accent">Duripudi</span></h1>
+      <h2>I am a <span id="typing">Frontend Developer</span></h2>
+      <p>I'm a passionate web Developerwith a focus on front-end technologies.
+              Currently pursuing B.Tech in Pragati Engineering College.</p>
+      <div class="social-icons">
+  <a href="#"><i class="ri-github-fill"></i></a>
+  <a href="#"><i class="ri-linkedin-fill"></i></a>
+  <a href="#"><i class="ri-mail-fill"></i></a>
+      </div>
+
+      <div class="hero-actions">
+        <button class="btn" id="moreBtn">More About Me</button>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <!-- PROFILE IMAGE (make sure file is at images/profile.jpeg) -->
+      <div class="photo-wrap">
+        <img src="./profile.jpeg" alt="profile photo" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="about-inner">
+      <h2>About Me</h2>
+      <p>
+        I’m a passionate Frontend Developer who loves building clean UI and learning AI/ML.
+        I enjoy solving problems and creating interactive web experiences.
+      </p>
+      <button class="btn" id="showSkillsBtn">Show My Skills</button>
+    </div>
+  </section>
+
+  <!-- SKILLS (hidden initially) -->
+  <section id="skills" class="skills hidden">
+    <h2>Technical Skills</h2>
+    <div class="skill-row">
+      <div class="skill-label">HTML</div>
+      <div class="bar"><div class="progress" style="width:95%"></div></div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-label">CSS</div>
+      <div class="bar"><div class="progress" style="width:80%"></div></div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-label">python</div>
+      <div class="bar"><div class="progress" style="width:85%"></div></div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-label">SQL</div>
+      <div class="bar"><div class="progress" style="width:75%"></div></div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-label">Javascript</div>
+      <div class="bar"><div class="progress" style="width:60%"></div></div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO (example) -->
+  <section id="portfolio" class="portfolio">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>AI Student Hub</h3>
+        <p>Notes, assignments & previous papers hub for AI students.</p>
+      </div>
+      <div class="project-card">
+        <h3>Personal Portfolio</h3>
+        <p>My portfolio website built with HTML/CSS/JS.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+  <h2>Contact <span>Me</span></h2>
+  <p>Let's work together</p>
+
+  <div class="contact-container">
+    <div class="contact-left">
+      <p><p>I’m Jyothi Duripudi, a passionate Computer Science student interested in AI, web development, and creative projects. Let’s connect and create something amazing together!</p></p>
+      <ul>
+        <li><i class="ri-mail-fill"></i> contact@gmail.com</li>
+        <li><i class="ri-phone-fill"></i> 0123456789</li>
+      </ul>
+      <div class="social-icons">
+        <a href="#"><i class="ri-github-fill"></i></a>
+        <a href="#"><i class="ri-whatsapp-fill"></i></a>
+        <a href="#"><i class="ri-instagram-fill"></i></a>
+        <a href="#"><i class="ri-linkedin-fill"></i></a>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <form>
+        <input type="text" placeholder="Enter Your Name" required>
+        <input type="email" placeholder="Enter Your Email" required>
+        <input type="text" placeholder="Enter Your Subject" required>
+        <textarea rows="5" placeholder="Enter Your Message" required></textarea>
+        <button type="submit" class="glow-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+</section>
+  <!-- SCRIPTS -->
+  <script>
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        const id = this.getAttribute('href');
+        if(!id || id === '#') return;
+        document.querySelector(id).scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+
+    // Show skills on click (About -> show)
+    document.getElementById('showSkillsBtn').addEventListener('click', ()=>{
+      const s = document.getElementById('skills');
+      s.classList.remove('hidden');
+      setTimeout(()=> s.classList.add('visible'), 40);
+      // scroll to skills
+      s.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+
+    // Also More About Me button scrolls to About
+    document.getElementById('moreBtn').addEventListener('click', ()=>{
+      document.getElementById('about').scrollIntoView({behavior:'smooth'});
+    });
+
+    // Typing effect for the role
+    const roles = ["Frontend Developer","Web Designer","AI Enthusiast"];
+    let idx = 0, ch = 0, forward = true;
+    const el = document.getElementById('typing');
+    function type(){
+      if(!el) return;
+      if(forward){
+        if(ch <= roles[idx].length){
+          el.textContent = roles[idx].slice(0,ch);
+          ch++; setTimeout(type, 120);
+        } else { forward = false; setTimeout(type, 1200); }
+      } else {
+        if(ch > 0){
+          ch--; el.textContent = roles[idx].slice(0,ch);
+          setTimeout(type, 60);
+        } else {
+          forward = true; idx = (idx+1) % roles.length; setTimeout(type, 200);
+        }
+      }
+    }
+    document.addEventListener('DOMContentLoaded', type);
+  </script>
+</body>
+</html>
